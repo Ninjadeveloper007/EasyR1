@@ -139,11 +139,11 @@ if __name__ == "__main__":
                 state_dict[key].append(tensor.bfloat16())
 
     del model_state_dict_lst
-
+               
     for key in sorted(state_dict):
         if not isinstance(state_dict[key], list):
             print(f"No need to merge key {key}")
-            continue
+            continue_compute_reward
 
         if key in param_placements:
             # merge shards
